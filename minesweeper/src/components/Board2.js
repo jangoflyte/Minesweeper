@@ -12,6 +12,7 @@ const StyledContainer = styled.div`
   text-align: center;
   display: flex;
   justify-content: center;
+  background-image: url("./images/background.png");
 `;
 const StyledBox = styled.div`
   border: 1px solid black;
@@ -21,12 +22,12 @@ const StyledBox = styled.div`
 
 export const Board = () => {
     const [grid, setGrid] = useState([]);
-    const { row, column} = useContext(MinesweeperContext);
+    const { row, column, mines} = useContext(MinesweeperContext);
     //console.log("This is the grid", grid);
 
     useEffect(() => {
         const newBoard = () => {
-            const board = createTable(row, column);
+            const board = createTable(row, column, mines);
             console.log(board);
             setGrid(board);
         };

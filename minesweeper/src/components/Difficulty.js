@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import { MinesweeperContext } from '../App';
 
 export const Difficulty = () => {
-    const { setDifficulty , setRow, setColumn} = useContext(MinesweeperContext);
+    const { setDifficulty , setRow, setColumn, setMines} = useContext(MinesweeperContext);
     
     const handleDifficulty = (e) => {
       e.preventDefault();
@@ -10,14 +10,17 @@ export const Difficulty = () => {
         setDifficulty("easy")
         setRow(10);
         setColumn(10);
+        setMines(10);
       } else if (e.target.value === "medium") {
         setDifficulty("medium");
         setRow(16);
         setColumn(16);
+        setMines(40);
       } else if (e.target.value === "hard") {
         setDifficulty("hard");
         setRow(30);
         setColumn(16);
+        setMines(99);
       }
     };
 

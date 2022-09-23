@@ -1,4 +1,4 @@
-export function createTable(row, column) {
+export function createTable(row, column, mines) {
    let board = [];
 
     for (let x=0; x < row; x++) {
@@ -6,10 +6,9 @@ export function createTable(row, column) {
         for (let y=0; y < column; y++) {
             subColumn.push({
                 value: 0,
-                revealed: false,
-                x: x,
-                y: y,
-                flagged: false,
+                wasClicked: false,
+                isBomb: false,
+                adjacentBombCount: 0
             });
         }
         board.push(subColumn);
